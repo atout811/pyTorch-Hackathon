@@ -5,7 +5,7 @@
       <div class="chat-container">
         <div v-for="(message, i) in chat" :key="i" class="messages">
           <div :class="message.from == 'bot' ? 'bot' : 'user'">
-            <v-avatar class="avatar" color="indigo">
+            <v-avatar color="indigo">
               <v-icon dark>
                 {{
                   message.from == "bot"
@@ -91,13 +91,11 @@ export default {
 .bot {
   display: flex;
   align-items: center;
-  margin: 10px;
 }
 .user {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  margin: 10px;
 }
 .messg {
   margin: 8px;

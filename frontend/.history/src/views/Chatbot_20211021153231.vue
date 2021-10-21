@@ -91,15 +91,16 @@ export default {
 .bot {
   display: flex;
   align-items: center;
-  margin: 10px;
 }
 .user {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  margin: 10px;
 }
 .messg {
   margin: 8px;
+}
+.v-avatar {
+  height: 20px;
 }
 </style>

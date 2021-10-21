@@ -5,14 +5,8 @@
       <div class="chat-container">
         <div v-for="(message, i) in chat" :key="i" class="messages">
           <div :class="message.from == 'bot' ? 'bot' : 'user'">
-            <v-avatar class="avatar" color="indigo">
-              <v-icon dark>
-                {{
-                  message.from == "bot"
-                    ? "mdi-robot-dead-outline"
-                    : "mdi-account-circle"
-                }}
-              </v-icon>
+            <v-avatar color="indigo">
+              <v-icon dark> mdi-account-circle </v-icon>
             </v-avatar>
             <div class="messg">this is a message yohohohohooh</div>
           </div>
@@ -91,15 +85,8 @@ export default {
 .bot {
   display: flex;
   align-items: center;
-  margin: 10px;
-}
-.user {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  margin: 10px;
 }
 .messg {
-  margin: 8px;
+  margin-left: 8px;
 }
 </style>

@@ -3,18 +3,12 @@
     <div class="container">
       <h1 class="title">Welcome to our Chatbot feel free to talk to him</h1>
       <div class="chat-container">
-        <div v-for="(message, i) in chat" :key="i" class="messages">
-          <div :class="message.from == 'bot' ? 'bot' : 'user'">
-            <v-avatar class="avatar" color="indigo">
-              <v-icon dark>
-                {{
-                  message.from == "bot"
-                    ? "mdi-robot-dead-outline"
-                    : "mdi-account-circle"
-                }}
-              </v-icon>
+        <div class="messages">
+          <div class="message">
+            <v-avatar color="indigo">
+              <v-icon dark> mdi-account-circle </v-icon>
             </v-avatar>
-            <div class="messg">this is a message yohohohohooh</div>
+            <div class="m">this is a message yohohohohooh</div>
           </div>
         </div>
         <div class="input-group">
@@ -37,12 +31,7 @@ export default {
   name: "chatbot",
   data() {
     return {
-      chat: [
-        { from: "bot", message: "hey how can i help u ?" },
-        { from: "user", message: "nohting" },
-        { from: "bot", message: "okay, bye " },
-        { from: "bot", message: "btw feel fear on human" },
-      ],
+      chat: [],
     };
   },
 };
@@ -88,18 +77,8 @@ export default {
   display: flex;
   align-items: center;
 }
-.bot {
+.message {
   display: flex;
   align-items: center;
-  margin: 10px;
-}
-.user {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  margin: 10px;
-}
-.messg {
-  margin: 8px;
 }
 </style>
