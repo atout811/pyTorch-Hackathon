@@ -24,7 +24,7 @@
       <v-spacer></v-spacer>
       <v-btn to="/chatbot" text>
         <v-text>Chatbot</v-text>
-        <v-icon>mdi-robot-dead-outline</v-icon>
+        <v-icon>mdi-login</v-icon>
       </v-btn>
       <v-btn to="/login" text>
         <v-text>Login</v-text>

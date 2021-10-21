@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -22,10 +26,6 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn to="/chatbot" text>
-        <v-text>Chatbot</v-text>
-        <v-icon>mdi-robot-dead-outline</v-icon>
-      </v-btn>
       <v-btn to="/login" text>
         <v-text>Login</v-text>
         <v-icon>mdi-login</v-icon>
@@ -37,14 +37,15 @@
     </v-app-bar>
 
     <v-main class="bubble">
-      <router-view />
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script>
+
 export default {
-  name: "App",
+  name: 'App',
 
   data: () => ({
     //
@@ -52,15 +53,15 @@ export default {
 };
 </script>
 <style>
-.bubble::before {
-  background-color: var(--v-primary-base);
-  clip-path: circle(80% at 90% 120%);
-  width: 100%;
-  height: 100%;
-  content: "";
-  position: absolute;
-  box-sizing: none;
-  top: 0;
-  left: 0;
-}
+  .bubble::before{
+    background-color: var(--v-primary-base);
+    clip-path: circle(80% at 90% 120%);
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    box-sizing: none;
+    top: 0;
+    left: 0;
+  }
 </style>
