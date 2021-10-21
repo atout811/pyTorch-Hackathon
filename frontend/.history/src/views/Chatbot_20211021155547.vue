@@ -3,30 +3,27 @@
     <div class="container">
       <h1 class="title">Welcome to our Chatbot feel free to talk to him</h1>
       <div class="chat-container">
-        <div class="messages">
-          <div v-for="(message, i) in chat" :key="i" class="message">
-            <div :class="message.from == 'bot' ? 'bot' : 'user'">
-              <v-avatar class="avatar" color="indigo">
-                <v-icon dark>
-                  {{
-                    message.from == "bot"
-                      ? "mdi-robot-dead-outline"
-                      : "mdi-account-circle"
-                  }}
-                </v-icon>
-              </v-avatar>
-              <div class="messg">{{ message.message }}</div>
-            </div>
+        <div v-for="(message, i) in chat" :key="i" class="messages">
+          <div :class="message.from == 'bot' ? 'bot' : 'user'">
+            <v-avatar class="avatar" color="indigo">
+              <v-icon dark>
+                {{
+                  message.from == "bot"
+                    ? "mdi-robot-dead-outline"
+                    : "mdi-account-circle"
+                }}
+              </v-icon>
+            </v-avatar>
+            <div class="messg">{{ message.message }}</div>
           </div>
         </div>
         <div class="input-group">
           <v-text-field
             class="text-input"
             label="Type your text here"
-            v-model="text"
           ></v-text-field>
           <v-file-input accept="image/*"></v-file-input>
-          <v-btn @click="sendMessage" icon color="var(--v-primary-base)">
+          <v-btn icon color="var(--v-primary-base)">
             <v-icon>mdi-send</v-icon>
           </v-btn>
         </div>
@@ -38,23 +35,18 @@
 <script>
 export default {
   name: "chatbot",
-
   data() {
     return {
       chat: [
-        { from: "bot", message: "how can I help u ?" },
-        { from: "user", message: "this is message yohohohoho ?" },
+        { from: "bot", message: "this is message yohohohoho ?" },
+        { from: "user", message: "nohting" },
         { from: "bot", message: "okay, bye " },
         { from: "bot", message: "btw feel fear on human" },
       ],
-      text: "",
-      image: "",
     };
   },
   methods: {
-    sendMessage: function () {
-      this.chat.push({ from: "user", message: this.text });
-    },
+    sendMessage: () => {},
   },
 };
 </script>
@@ -90,9 +82,6 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   padding: 8px;
-}
-.messages {
-  overflow: scroll;
 }
 .text-input {
   width: 70%;

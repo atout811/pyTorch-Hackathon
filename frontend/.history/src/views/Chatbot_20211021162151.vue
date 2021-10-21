@@ -3,27 +3,25 @@
     <div class="container">
       <h1 class="title">Welcome to our Chatbot feel free to talk to him</h1>
       <div class="chat-container">
-        <div class="messages">
-          <div v-for="(message, i) in chat" :key="i" class="message">
-            <div :class="message.from == 'bot' ? 'bot' : 'user'">
-              <v-avatar class="avatar" color="indigo">
-                <v-icon dark>
-                  {{
-                    message.from == "bot"
-                      ? "mdi-robot-dead-outline"
-                      : "mdi-account-circle"
-                  }}
-                </v-icon>
-              </v-avatar>
-              <div class="messg">{{ message.message }}</div>
-            </div>
+        <div v-for="(message, i) in chat" :key="i" class="messages">
+          <div :class="message.from == 'bot' ? 'bot' : 'user'">
+            <v-avatar class="avatar" color="indigo">
+              <v-icon dark>
+                {{
+                  message.from == "bot"
+                    ? "mdi-robot-dead-outline"
+                    : "mdi-account-circle"
+                }}
+              </v-icon>
+            </v-avatar>
+            <div class="messg">{{ message.message }}</div>
           </div>
         </div>
         <div class="input-group">
           <v-text-field
             class="text-input"
             label="Type your text here"
-            v-model="text"
+            v-bind="text"
           ></v-text-field>
           <v-file-input accept="image/*"></v-file-input>
           <v-btn @click="sendMessage" icon color="var(--v-primary-base)">
@@ -53,7 +51,8 @@ export default {
   },
   methods: {
     sendMessage: function () {
-      this.chat.push({ from: "user", message: this.text });
+      if (this.text.length)
+        this.chat.push({ from: "user", message: this.text });
     },
   },
 };
@@ -90,9 +89,6 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   padding: 8px;
-}
-.messages {
-  overflow: scroll;
 }
 .text-input {
   width: 70%;
