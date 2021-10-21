@@ -16,13 +16,8 @@
                 </v-icon>
               </v-avatar>
               <div class="content">
-                <div v-if="message.image">
-                  <v-img
-                    max-height="150"
-                    max-width="250"
-                    src="../assets/brook.jpg"
-                    class="photo"
-                  ></v-img>
+                <div v-if="image">
+                  <v-img max-height="150" max-width="250" :src="image"></v-img>
                 </div>
                 <div class="messg">{{ message.message }}</div>
               </div>
@@ -63,11 +58,8 @@ export default {
   },
   methods: {
     sendMessage: function () {
-      this.chat.push({
-        from: "user",
-        message: this.text,
-        image: true,
-      });
+      console.log(this.image);
+      this.chat.push({ from: "user", message: this.text, image: this.image });
     },
   },
 };
@@ -129,8 +121,5 @@ export default {
 }
 .messg {
   margin: 8px;
-}
-.photo {
-  border-radius: 5px;
 }
 </style>

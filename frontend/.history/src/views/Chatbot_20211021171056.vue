@@ -16,7 +16,7 @@
                 </v-icon>
               </v-avatar>
               <div class="content">
-                <div v-if="message.image">
+                <div v-if="image">
                   <v-img
                     max-height="150"
                     max-width="250"
@@ -35,7 +35,11 @@
             label="Type your text here"
             v-model="text"
           ></v-text-field>
-          <v-file-input v-model="image" accept="image/*"></v-file-input>
+          <v-file-input
+            v-if="message.image"
+            v-model="image"
+            accept="image/*"
+          ></v-file-input>
           <v-btn @click="sendMessage" icon color="var(--v-primary-base)">
             <v-icon>mdi-send</v-icon>
           </v-btn>

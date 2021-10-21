@@ -16,12 +16,12 @@
                 </v-icon>
               </v-avatar>
               <div class="content">
-                <div v-if="message.image">
+                <div v-if="image">
                   <v-img
+                    lazy-src="https://picsum.photos/id/11/10/6"
                     max-height="150"
                     max-width="250"
-                    src="../assets/brook.jpg"
-                    class="photo"
+                    src="https://picsum.photos/id/11/500/300"
                   ></v-img>
                 </div>
                 <div class="messg">{{ message.message }}</div>
@@ -58,16 +58,12 @@ export default {
         { from: "bot", message: "btw feel fear on human" },
       ],
       text: "",
-      image: false,
+      image: "",
     };
   },
   methods: {
     sendMessage: function () {
-      this.chat.push({
-        from: "user",
-        message: this.text,
-        image: true,
-      });
+      this.chat.push({ from: "user", message: this.text, image: this.image });
     },
   },
 };
@@ -129,8 +125,5 @@ export default {
 }
 .messg {
   margin: 8px;
-}
-.photo {
-  border-radius: 5px;
 }
 </style>

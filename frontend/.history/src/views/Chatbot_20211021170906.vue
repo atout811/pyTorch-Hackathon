@@ -16,12 +16,11 @@
                 </v-icon>
               </v-avatar>
               <div class="content">
-                <div v-if="message.image">
+                <div v-if="image">
                   <v-img
                     max-height="150"
                     max-width="250"
                     src="../assets/brook.jpg"
-                    class="photo"
                   ></v-img>
                 </div>
                 <div class="messg">{{ message.message }}</div>
@@ -59,14 +58,24 @@ export default {
       ],
       text: "",
       image: false,
+      imageUrl: "",
     };
   },
   methods: {
     sendMessage: function () {
+      if (this.image) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          this.imageUrl = e.target.result;
+        };
+        reader.readAsDataURL(this.image);
+      }
+      console.log(this.imageUrl);
       this.chat.push({
         from: "user",
         message: this.text,
-        image: true,
+        image: this.imageUrl,
       });
     },
   },
@@ -129,8 +138,5 @@ export default {
 }
 .messg {
   margin: 8px;
-}
-.photo {
-  border-radius: 5px;
 }
 </style>

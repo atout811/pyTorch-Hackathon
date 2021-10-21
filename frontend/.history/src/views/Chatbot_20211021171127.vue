@@ -16,7 +16,7 @@
                 </v-icon>
               </v-avatar>
               <div class="content">
-                <div v-if="message.image">
+                <div v-if="image">
                   <v-img
                     max-height="150"
                     max-width="250"
